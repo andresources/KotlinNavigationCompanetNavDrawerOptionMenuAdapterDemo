@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment2">
+
+    <fragment
+        android:id="@+id/firstFragment2"
+        android:name="com.kotlinnavigationdemo.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment2_to_secondFragment2"
+            app:destination="@id/secondFragment2" />
+        <action
+            android:id="@+id/action_firstFragment2_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_firstFragment2_to_fourthFragment"
+            app:destination="@id/fourthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment2"
+        android:name="com.kotlinnavigationdemo.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second">
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.kotlinnavigationdemo.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.kotlinnavigationdemo.FourthFragment"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" />
+</navigation>
