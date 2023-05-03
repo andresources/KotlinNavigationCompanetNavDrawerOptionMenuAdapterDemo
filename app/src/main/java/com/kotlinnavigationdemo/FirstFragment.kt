@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 
 
@@ -20,7 +22,7 @@ class FirstFragment : Fragment() {
     private lateinit var btn:Button
     private lateinit var button3:Button
     private lateinit var button4:Button
-
+    val viewModel : ViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

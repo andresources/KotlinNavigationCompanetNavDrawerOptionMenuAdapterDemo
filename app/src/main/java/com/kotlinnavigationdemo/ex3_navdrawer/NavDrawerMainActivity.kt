@@ -8,6 +8,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,6 +25,7 @@ class NavDrawerMainActivity : AppCompatActivity() {
     private lateinit var navController : NavController
     private lateinit var navView : NavigationView
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var viewModel: MyViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav_drawer_main)
@@ -32,7 +35,13 @@ class NavDrawerMainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setTitle("")
         setupNavView()
+        viewModel = ViewModelProvider(this).get(MyViewModel::class.java)
+        viewModel._title.observe(this,{
+            supportActionBar?.setTitle(it)
+        })
+
     }
 
     private fun setupNavView(){
